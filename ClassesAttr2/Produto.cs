@@ -19,6 +19,12 @@ namespace ClassesAttr2
             Quantidade = quantidade;
         }
 
+        public Produto(string nome, double valor)
+        {
+            Nome = nome;
+            Valor = valor;
+        }
+
         public double ValorTotalEmEstoque()
         {
             return Quantidade * Valor;
