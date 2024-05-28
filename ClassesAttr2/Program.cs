@@ -6,19 +6,20 @@ namespace ClassesAttr2
     {
         static void Main(string[] args)
         {
-            Produto produto = new Produto();
             int option;
             int qtd;
 
             Console.WriteLine("Insira os dados do produto:");
             Console.Write("Nome: ");
-            produto.Nome = Console.ReadLine();
+            string nome = Console.ReadLine();
 
             Console.Write("Preço: ");
-            produto.Valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             Console.Write("Quantidade: ");
-            produto.Quantidade = int.Parse(Console.ReadLine());
+            int quantidade = int.Parse(Console.ReadLine());
+            
+            Produto produto = new Produto(nome, valor, quantidade);
 
             do
             {
