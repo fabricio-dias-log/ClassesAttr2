@@ -12,6 +12,18 @@ namespace ClassesAttr2
         private double _valor;
         private int _quantidade;
 
+        public string Nome
+        {
+            get { return _nome; }
+            set
+            {
+                if (value != null && value.Length > 1)
+                {
+                    _nome = value;
+                }
+            }
+        }
+
         public Produto()
         {
         }
@@ -27,29 +39,15 @@ namespace ClassesAttr2
             _quantidade = quantidade;
         }
 
-        public string GetNome()
+        public double Valor
         {
-            return _nome;
+            get { return _valor; }
         }
 
-        public void SetNome(string nome)
+        public int Quantidade
         {
-            if (nome != null && nome.Length > 1)
-            {
-                _nome = nome;
-            }
+            get { return _quantidade; }
         }
-
-        public double GetValor()
-        {
-            return _valor;
-        }
-
-        public int GetQuantidade()
-        {
-            return _quantidade;
-        }
-
 
         public double ValorTotalEmEstoque()
         {
