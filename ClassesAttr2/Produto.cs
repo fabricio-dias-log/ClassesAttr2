@@ -8,42 +8,68 @@ namespace ClassesAttr2
 {
     internal class Produto
     {
-        public string Nome;
-        public double Valor;
-        public int Quantidade;
+        private string _nome;
+        private double _valor;
+        private int _quantidade;
 
-        public Produto(string nome, double valor, int quantidade)
+        public Produto()
         {
-            Nome = nome;
-            Valor = valor;
-            Quantidade = quantidade;
+        }
+        
+        public Produto(string nome, double valor) : this()
+        {
+            _nome = nome;
+            _valor = valor;
         }
 
-        public Produto(string nome, double valor)
+        public Produto(string nome, double valor, int quantidade) : this(nome,valor)
         {
-            Nome = nome;
-            Valor = valor;
+            _quantidade = quantidade;
         }
+
+        public string GetNome()
+        {
+            return _nome;
+        }
+
+        public void SetNome(string nome)
+        {
+            if (nome != null && nome.Length > 1)
+            {
+                _nome = nome;
+            }
+        }
+
+        public double GetValor()
+        {
+            return _valor;
+        }
+
+        public int GetQuantidade()
+        {
+            return _quantidade;
+        }
+
 
         public double ValorTotalEmEstoque()
         {
-            return Quantidade * Valor;
+            return _quantidade * _valor;
         }
 
         public override string ToString()
         {
-            return $"Nome: {Nome} | Preço: R${Valor.ToString("F2")} | Estoque: {Quantidade} | Total R$: R${ValorTotalEmEstoque().ToString("F2")}";
+            return $"Nome: {_nome} | Preço: R${_valor.ToString("F2")} | Estoque: {_quantidade} | Total R$: R${ValorTotalEmEstoque().ToString("F2")}";
         }
 
         public void AdicionarProdutos(int quantity)
         {
-            Quantidade += quantity;
+            _quantidade += quantity;
             ToString();
         }
 
         public void RemoverProdutos(int quantity)
         {
-            Quantidade -= quantity;
+            _quantidade -= quantity;
             ToString();
         }
     }
